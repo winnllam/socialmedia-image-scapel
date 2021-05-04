@@ -20,8 +20,8 @@ SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
 app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 ### end swagger ###
 
-@app.route('/get_img_urls/', methods=['GET'])
-def respond():
+@app.route('/dribbble/', methods=['GET'])
+def dribbble():
     # Retrieve the username from url parameter
     name = request.args.get("name", None)
 
@@ -53,7 +53,7 @@ def respond():
 
 @app.route('/')
 def index():
-    return "<h1>Welcome to our server !!</h1>"
+    return "<h1>Social Media Image API</h1><p>This is an API that extracts thumbnail URLs of shots made by a user on different media platforms</p>"
 
 
 if __name__ == '__main__':

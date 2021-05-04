@@ -14,7 +14,7 @@
       "description" : "Get image URLs given a user"
     } ],
     "paths" : {
-      "/get_img_urls" : {
+      "/dribbble" : {
         "get" : {
           "tags" : [ "Image URLs" ],
           "summary" : "searches images from Dribbble for a user",

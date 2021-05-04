@@ -2,11 +2,23 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from bs4 import BeautifulSoup
 import requests
-
+from flask_swagger_ui import get_swaggerui_blueprint
 
 app = Flask(__name__)
 CORS(app)
 
+### swagger ###
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'
+SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': "socialmedia-image-scapel"
+    }
+)
+app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
+### end swagger ###
 
 @app.route('/get_img_urls/', methods=['GET'])
 def respond():

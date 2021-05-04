@@ -1,0 +1,63 @@
+{
+    "swagger" : "2.0",
+    "info" : {
+      "description" : "API to get image URLs from a user on social media sites.",
+      "version" : "1.0.0",
+      "title" : "Social Media Image API",
+      "license" : {
+        "name" : "Apache 2.0",
+        "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "tags" : [ {
+      "name" : "Image URLs",
+      "description" : "Get image URLs given a user"
+    } ],
+    "paths" : {
+      "/get_img_urls" : {
+        "get" : {
+          "tags" : [ "Image URLs" ],
+          "summary" : "searches images from Dribbble for a user",
+          "operationId" : "getImg",
+          "description" : "By passing in the appropriate options, you can search for\navailable inventory in the system\n",
+          "produces" : [ "application/json" ],
+          "parameters" : [ {
+            "in" : "query",
+            "name" : "name",
+            "description" : "pass a username from the site",
+            "required" : true,
+            "type" : "string"
+          } ],
+          "responses" : {
+            "200" : {
+              "description" : "search results matching criteria",
+              "schema" : {
+                "$ref" : "#/definitions/URLs"
+              }
+            },
+            "400" : {
+              "description" : "no name found, please send a name."
+            }
+          }
+        }
+      }
+    },
+    "definitions" : {
+      "URLs" : {
+        "type" : "object",
+        "required" : [ "urls" ],
+        "properties" : {
+          "urls" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "example" : "url1"
+            }
+          }
+        }
+      }
+    },
+    "schemes" : [ "https" ],
+    "host" : "socialmedia-image-scapel.vercel.app",
+    "basePath" : "/"
+  }

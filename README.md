@@ -7,7 +7,7 @@
   <h3 align="center">Image duplication made easy.</h3>
 
   <p align="center">
-    REST API · <a href="">Swagger</a>
+    REST API · <a href="https://socialmedia-image-scapel.vercel.app/swagger">Swagger</a>
   </p>
 </p>
 
